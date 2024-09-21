@@ -1,11 +1,14 @@
-// import { Text } from 'react-native'
-
-import { Container, HighLight } from './styles'
+import { Header } from '@components/Header'
+import { Container, HighLight, List } from './styles'
+import React from 'react'
 
 export function Home() {
   return (
     <Container>
-      <HighLight>Todo List</HighLight>
+      <Header />
+      <List>
+        <HighLight>Todo List</HighLight>
+      </List>
     </Container>
   )
 }
