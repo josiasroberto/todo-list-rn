@@ -1,14 +1,16 @@
 import { Header } from '@components/Header'
-import { Container, HighLight, List } from './styles'
+import * as S from './styles'
 import React from 'react'
+import { Input } from '@components/Input'
 
 export function Home() {
   return (
-    <Container>
+    <S.Container>
       <Header />
-      <List>
-        <HighLight>Todo List</HighLight>
-      </List>
-    </Container>
+      <S.List>
+        <Input placeholder="Adicione uma nova tarefa" />
+        {/* <S.HighLight>Todo List</S.HighLight> */}
+      </S.List>
+    </S.Container>
   )
 }

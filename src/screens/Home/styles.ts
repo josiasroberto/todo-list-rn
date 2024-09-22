@@ -5,12 +5,15 @@ import styled from 'styled-components/native'
 export const Container = styled(SafeAreaView)`
   flex: 1;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.gray_600};
+  background-color: ${({ theme }) => theme.COLOR.GRAY_600};
 `
 export const List = styled.View`
-  padding: 24px;
+  padding: 0 24px 24px;
+  margin-top: -27px;
+  width: 100%;
   justify-content: center;
 `
+
 export const HighLight = styled(Text)`
   color: white;
 `
