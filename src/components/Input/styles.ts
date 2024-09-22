@@ -22,4 +22,6 @@ export const Container = styled(TextInput).attrs<Props>(({ theme }) => ({
 
   border-radius: 8px;
   padding: 16px;
+  height: 54px;
+  flex: 1;
 `

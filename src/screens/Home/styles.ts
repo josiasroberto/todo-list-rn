@@ -13,6 +13,11 @@ export const List = styled.View`
   width: 100%;
   justify-content: center;
 `
+export const InputArea = styled.View`
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+`
 
 export const HighLight = styled(Text)`
   color: white;
