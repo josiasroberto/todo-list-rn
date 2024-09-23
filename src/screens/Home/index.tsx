@@ -4,6 +4,7 @@ import React from 'react'
 import { Input } from '@components/Input'
 import { AddButton } from '@components/AddButton'
 import { TasksInfo } from '@components/TasksInfo'
+import { EmptyTaskList } from '@components/EmptyTaskList'
 
 export function Home() {
   return (
@@ -17,7 +18,7 @@ export function Home() {
 
         <TasksInfo />
 
-        {/* <S.HighLight>Todo List</S.HighLight> */}
+        <EmptyTaskList />
       </S.List>
     </S.Container>
   )

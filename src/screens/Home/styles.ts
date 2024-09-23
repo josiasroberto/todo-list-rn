@@ -1,4 +1,3 @@
-import { Text } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import styled from 'styled-components/native'
 
@@ -17,8 +16,4 @@ export const InputArea = styled.View`
   flex-direction: row;
   align-items: center;
   gap: 4px;
-`
-
-export const HighLight = styled(Text)`
-  color: white;
 `
