@@ -4,9 +4,8 @@ interface HighLightProps {
   type: 'TITLE' | 'SUBTITLE'
 }
 
-export const Container = styled.View`
-  margin-top: 20px;
-`
+export const Container = styled.View``
+
 export const Line = styled.View`
   border: 0.5px solid;
   border-color: ${({ theme }) => theme.COLOR.GRAY_400};

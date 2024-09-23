@@ -4,7 +4,8 @@ import React from 'react'
 import { Input } from '@components/Input'
 import { AddButton } from '@components/AddButton'
 import { TasksInfo } from '@components/TasksInfo'
-import { EmptyTaskList } from '@components/EmptyTaskList'
+// import { EmptyTaskList } from '@components/EmptyTaskList'
+import { Task } from '@components/Task'
 
 export function Home() {
   return (
@@ -18,7 +19,10 @@ export function Home() {
 
         <TasksInfo />
 
-        <EmptyTaskList />
+        {/* <EmptyTaskList /> */}
+
+        <Task />
+        <Task />
       </S.List>
     </S.Container>
   )
