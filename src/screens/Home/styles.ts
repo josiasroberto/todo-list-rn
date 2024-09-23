@@ -11,6 +11,7 @@ export const List = styled.View`
   margin-top: -27px;
   width: 100%;
   justify-content: center;
+  flex: 1;
 `
 export const InputArea = styled.View`
   flex-direction: row;

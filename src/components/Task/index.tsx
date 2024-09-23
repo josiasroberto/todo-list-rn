@@ -6,7 +6,11 @@ import * as S from './styles'
 import { useState } from 'react'
 import { useTheme } from 'styled-components/native'
 
-export function Task() {
+interface TaskProps {
+  task: string
+}
+
+export function Task({ task }: TaskProps) {
   const { COLOR } = useTheme()
 
   const [isChecked, setIsChecked] = useState(false)
@@ -23,12 +27,7 @@ export function Task() {
         )}
       </S.CheckButton>
 
-      <S.TaskText isChecked={isChecked}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore,
-        quidem ea commodi nisi velit pariatur laborum ipsum numquam vitae
-        aliquam alias. Odit nam quidem aliquam iusto, labore eum aliquid
-        dolorum?
-      </S.TaskText>
+      <S.TaskText isChecked={isChecked}>{task}</S.TaskText>
 
       <S.TrashButton>
         <Feather name="trash-2" size={24} color={COLOR.GRAY_300} />
