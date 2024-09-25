@@ -14,6 +14,7 @@ import { TaskStorageDTO } from '@components/storage/task/TaskStorageDTO'
 import { taskCreate } from '@components/storage/task/taskCreate'
 import { tasksGetAll } from '@components/storage/task/tasksGetAll'
 import { taskRemove } from '@components/storage/task/taskRemove'
+import { taskUpdateStatus } from '@components/storage/task/taskUpdateStatus'
 
 export function Home() {
   const [tasks, setTasks] = useState<TaskStorageDTO[]>([])
@@ -72,7 +73,12 @@ export function Home() {
   }
 
   async function handleCompleteTask(id: string) {
-    console.log(id)
+    try {
+      await taskUpdateStatus(id)
+    } catch (error) {
+      Alert.alert('Erro', 'Ocorreu um erro ao marcar a tarefa como completa.')
+      console.log(error)
+    }
   }
 
   useEffect(() => {
