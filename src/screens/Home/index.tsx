@@ -90,7 +90,7 @@ export function Home() {
           <AddButton onPress={handleAddTask} />
         </S.InputArea>
 
-        <TasksInfo />
+        <TasksInfo tasks={tasks} />
 
         <FlatList
           data={tasks}

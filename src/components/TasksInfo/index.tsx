@@ -1,16 +1,23 @@
+import { TaskStorageDTO } from '@components/storage/task/TaskStorageDTO'
 import { Container, Quantity, Title, Wrapper } from './styles'
 import React from 'react'
 
-export function TasksInfo() {
+interface TasksInfoProps {
+  tasks: TaskStorageDTO[]
+}
+
+export function TasksInfo({ tasks }: TasksInfoProps) {
+  const tasksQuantity = tasks.length
+  const completedTasks = tasks.filter((task) => task.isChecked === true).length
   return (
     <Container>
       <Wrapper>
         <Title type="PRIMARY">Criadas</Title>
-        <Quantity>10</Quantity>
+        <Quantity>{tasksQuantity}</Quantity>
       </Wrapper>
       <Wrapper>
         <Title type="SECONDARY">Concluídas</Title>
-        <Quantity>0 de 10</Quantity>
+        <Quantity>{completedTasks + ' de ' + tasksQuantity}</Quantity>
       </Wrapper>
     </Container>
   )
