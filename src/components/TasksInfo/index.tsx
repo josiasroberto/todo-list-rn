@@ -8,7 +8,9 @@ interface TasksInfoProps {
 
 export function TasksInfo({ tasks }: TasksInfoProps) {
   const tasksQuantity = tasks.length
-  const completedTasks = tasks.filter((task) => task.isChecked === true).length
+  const completedTasks = tasks.filter(
+    (task) => task.isCompleted === true,
+  ).length
   return (
     <Container>
       <Wrapper>

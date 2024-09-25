@@ -31,7 +31,7 @@ export function Home() {
     const newTask: TaskStorageDTO = {
       id: String(uuid.v4()),
       name: newTaskName.trimStart().trimEnd(),
-      isChecked: false,
+      isCompleted: false,
     }
     try {
       await taskCreate(newTask)
@@ -71,6 +71,10 @@ export function Home() {
     ])
   }
 
+  async function handleCompleteTask(id: string) {
+    console.log(id)
+  }
+
   useEffect(() => {
     fetchTasks()
   }, [tasks])
@@ -96,7 +100,11 @@ export function Home() {
           data={tasks}
           keyExtractor={(_, index) => String(index)}
           renderItem={({ item }) => (
-            <Task task={item} onDelete={() => handleDeleteTask(item.id)} />
+            <Task
+              task={item}
+              onDelete={() => handleDeleteTask(item.id)}
+              onCompleteTask={() => handleCompleteTask(item.id)}
+            />
           )}
           ListEmptyComponent={() => <EmptyTaskList />}
           showsVerticalScrollIndicator={false}

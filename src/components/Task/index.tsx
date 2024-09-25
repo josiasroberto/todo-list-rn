@@ -9,24 +9,27 @@ import { TaskStorageDTO } from '@components/storage/task/TaskStorageDTO'
 
 interface TaskProps {
   task: TaskStorageDTO
-  onChangeCheck: () => void
+  onCompleteTask: () => void
   onDelete: () => void
 }
 
-export function Task({ task, onChangeCheck, onDelete }: TaskProps) {
+export function Task({ task, onCompleteTask, onDelete }: TaskProps) {
   const { COLOR } = useTheme()
 
   return (
-    <S.Container isChecked={task.isChecked}>
-      <S.CheckButton isChecked={task.isChecked} onPress={() => onChangeCheck()}>
-        {task.isChecked ? (
+    <S.Container isCompleted={task.isCompleted}>
+      <S.CheckButton
+        isCompleted={task.isCompleted}
+        onPress={() => onCompleteTask()}
+      >
+        {task.isCompleted ? (
           <AntDesign name="checkcircle" size={24} color={COLOR.PURPLE_DARK} />
         ) : (
           <Entypo name="circle" size={24} color={COLOR.BLUE} />
         )}
       </S.CheckButton>
 
-      <S.TaskText isChecked={task.isChecked}>{task.name}</S.TaskText>
+      <S.TaskText isCompleted={task.isCompleted}>{task.name}</S.TaskText>
 
       <S.TrashButton onPress={() => onDelete()}>
         <Feather name="trash-2" size={24} color={COLOR.GRAY_300} />
