@@ -3,33 +3,32 @@ import AntDesign from '@expo/vector-icons/AntDesign'
 import Feather from '@expo/vector-icons/Feather'
 
 import * as S from './styles'
-import { useState } from 'react'
+
 import { useTheme } from 'styled-components/native'
+import { TaskStorageDTO } from '@components/storage/task/TaskStorageDTO'
 
 interface TaskProps {
-  task: string
+  task: TaskStorageDTO
+  onChangeCheck: () => void
+  onDelete: () => void
 }
 
-export function Task({ task }: TaskProps) {
+export function Task({ task, onChangeCheck, onDelete }: TaskProps) {
   const { COLOR } = useTheme()
 
-  const [isChecked, setIsChecked] = useState(false)
   return (
-    <S.Container isChecked={isChecked}>
-      <S.CheckButton
-        isChecked={isChecked}
-        onPress={() => setIsChecked(!isChecked)}
-      >
-        {isChecked ? (
+    <S.Container isChecked={task.isChecked}>
+      <S.CheckButton isChecked={task.isChecked} onPress={() => onChangeCheck()}>
+        {task.isChecked ? (
           <AntDesign name="checkcircle" size={24} color={COLOR.PURPLE_DARK} />
         ) : (
           <Entypo name="circle" size={24} color={COLOR.BLUE} />
         )}
       </S.CheckButton>
 
-      <S.TaskText isChecked={isChecked}>{task}</S.TaskText>
+      <S.TaskText isChecked={task.isChecked}>{task.name}</S.TaskText>
 
-      <S.TrashButton>
+      <S.TrashButton onPress={() => onDelete()}>
         <Feather name="trash-2" size={24} color={COLOR.GRAY_300} />
       </S.TrashButton>
     </S.Container>
